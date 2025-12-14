@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647786099398",
+    "project_id": "gabimarou-c81f1",
+    "storage_bucket": "gabimarou-c81f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647786099398:android:63b62b1632a983f44b9dc7",
+        "android_client_info": {
+          "package_name": "com.d3f4ult.kanbanapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMk5_aHJKu_lfH_xQ5hNQdVafKYYfippo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647786099398:android:aa7b2cfad228f34c4b9dc7",
+        "android_client_info": {
+          "package_name": "com.example.gabimarou"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMk5_aHJKu_lfH_xQ5hNQdVafKYYfippo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

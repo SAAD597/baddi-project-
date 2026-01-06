@@ -1,155 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView 
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardViewTask"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground">
-    
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        
-        <!-- Indicateur de priorité (barre colorée) -->
+        android:padding="16dp"
+        android:background="#FFFFFF">
+
+        <!-- Priority badge -->
+        <TextView
+            android:id="@+id/textTaskPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/badge_priority_high"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Status badge (optional) -->
+        <TextView
+            android:id="@+id/textTaskStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#27AE60"
+            android:background="@drawable/badge_status"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Task title -->
+        <TextView
+            android:id="@+id/textTaskTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Fix critical bug"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/textTaskPriority"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <!-- Task description -->
+        <TextView
+            android:id="@+id/textTaskDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="E-commerce team"
+            android:textSize="13sp"
+            android:textColor="#95A5A6"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/textTaskTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- Bottom info section -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/textTaskDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <!-- Assigned user avatars -->
+            <LinearLayout
+                android:id="@+id/layoutAssignees"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="D"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:background="#FF6B6B"
+                        android:gravity="center" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    android:layout_marginStart="-8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="AH"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:background="#4ECDC4"
+                        android:gravity="center" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Action buttons -->
+            <ImageButton
+                android:id="@+id/buttonEditTask"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Edit"
+                app:tint="#95A5A6"
+                android:scaleType="centerInside"
+                android:padding="4dp" />
+
+            <ImageButton
+                android:id="@+id/buttonDeleteTask"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Delete"
+                app:tint="#95A5A6"
+                android:scaleType="centerInside"
+                android:padding="4dp" />
+
+            <ImageButton
+                android:id="@+id/buttonChangeStatus"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@android:drawable/ic_media_play"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Change status"
+                app:tint="#95A5A6"
+                android:scaleType="centerInside"
+                android:padding="4dp" />
+        </LinearLayout>
+
+        <!-- Date (hidden by default) -->
+        <TextView
+            android:id="@+id/textTaskDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due: 31/12/2024"
+            android:textSize="11sp"
+            android:textColor="#95A5A6"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/layoutAssignees"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- Assigned to (hidden by default) -->
+        <TextView
+            android:id="@+id/textTaskAssignedTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assigned to: John"
+            android:textSize="11sp"
+            android:textColor="#95A5A6"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/textTaskDate"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp" />
+
+        <!-- Priority indicator (hidden, keeping for adapter compatibility) -->
         <View
             android:id="@+id/priorityIndicator"
-            android:layout_width="4dp"
-            android:layout_height="match_parent"
-            android:background="#3498DB" />
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
-            
-            <!-- En-tête avec titre et boutons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                
-                <TextView
-                    android:id="@+id/textTaskTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Titre de la tâche"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#2C3E50"
-                    android:maxLines="2"
-                    android:ellipsize="end" />
-                
-                <!-- Boutons d'action -->
-                <ImageButton
-                    android:id="@+id/buttonChangeStatus"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@android:drawable/ic_media_play"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Changer statut"
-                    android:scaleType="centerInside" />
-                
-                <ImageButton
-                    android:id="@+id/buttonEditTask"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@android:drawable/ic_menu_edit"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Modifier"
-                    android:scaleType="centerInside" />
-                
-                <ImageButton
-                    android:id="@+id/buttonDeleteTask"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@android:drawable/ic_menu_delete"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Supprimer"
-                    android:scaleType="centerInside" />
-            </LinearLayout>
-            
-            <!-- Description -->
-            <TextView
-                android:id="@+id/textTaskDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description de la tâche"
-                android:textSize="14sp"
-                android:textColor="#7F8C8D"
-                android:maxLines="3"
-                android:ellipsize="end"
-                android:layout_marginTop="4dp" />
-            
-            <!-- Statut et priorité -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-                
-                <TextView
-                    android:id="@+id/textTaskStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="À faire"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:background="@drawable/badge_background"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp" />
-                
-                <TextView
-                    android:id="@+id/textTaskPriority"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Priorité: Moyenne"
-                    android:textSize="12sp"
-                    android:textColor="#95A5A6"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/badge_background"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp" />
-            </LinearLayout>
-            
-            <!-- Assignation -->
-            <TextView
-                android:id="@+id/textTaskAssignedTo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Assigné à: Jean"
-                android:textSize="12sp"
-                android:textColor="#34495E"
-                android:layout_marginTop="4dp"
-                android:drawableStart="@android:drawable/ic_menu_myplaces"
-                android:drawablePadding="4dp"
-                android:visibility="gone" />
-            
-            <!-- Date d'échéance -->
-            <TextView
-                android:id="@+id/textTaskDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Échéance: 31/12/2024"
-                android:textSize="12sp"
-                android:textColor="#95A5A6"
-                android:layout_marginTop="4dp"
-                android:drawableStart="@android:drawable/ic_menu_my_calendar"
-                android:drawablePadding="4dp"
-                android:visibility="gone" />
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

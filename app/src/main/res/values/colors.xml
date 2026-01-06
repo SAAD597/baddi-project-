@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary Colors -->
+    <color name="primary_blue">#5B9FED</color>
+    <color name="primary_blue_dark">#4A8FDD</color>
+
+    <!-- Status Colors -->
+    <color name="success_green">#27AE60</color>
+    <color name="warning_orange">#F39C12</color>
+    <color name="error_red">#FF6B6B</color>
+    <color name="info_teal">#4ECDC4</color>
+
+    <!-- Background Colors -->
+    <color name="background_light">#F5F7FA</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_gray">#F0F0F0</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#2C3E50</color>
+    <color name="text_secondary">#95A5A6</color>
+    <color name="text_hint">#9E9E9E</color>
 </resources>
